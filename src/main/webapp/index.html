@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3D BIN Packing - Home</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	    <link href="assets/pace/themes/red/pace-theme-center-atom.css" rel="stylesheet" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	    <script data-pace-options='{ "elements": false }' src="assets/pace/pace.min.js"></script>
+		<script src="js/session.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/demo.css">
+		<script src="js/bootstrap-notify.min.js"></script>
+    </head>
+    <body>
+        <noscript>
+            <h2>Sorry! Your browser doesn't support Javascript</h2>
+        </noscript>
+        <div class="upload-container">
+            <div class="upload-header">
+                <h2>3D BIN Packing</h2>
+            </div>
+            <div class="upload-content">
+                <div class="multiple-upload">
+                    <form id="multipleUploadForm" name="multipleUploadForm">
+                        <input id="multipleFileUploadInput" type="file" name="files" class="file-input" multiple required />
+                        <button type="submit" class="primary submit-btn">Submit</button>
+                    </form>
+                    <div class="upload-response">
+                        <div id="multipleFileUploadError"></div>
+                        <div id="multipleFileUploadSuccess"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/main.js" ></script>
+         <script>
+    	$(document).ready(function()
+    	{
+    		Pace.on("done", function() 
+            {
+    		    $('#page_overlay').delay(100).fadeOut(1000);
+    		});
+    		Pace.on("done", function()
+            {
+    		    $(".cover").fadeOut(2000);
+    		});
+    		$.notify
+            ({
+                icon: 'glyphicon glyphicon-user',
+                title: '<b><span>INFORMATION</span></b>',
+                message: 'You Have An Access Only For 30 Minutes, If You Lost Access Get It By Clicking Me',
+                url: 'login.html',
+                // target: '_blank'
+            },
+            {
+                allow_dismiss: false,delay: 500000,placement: 
+                {
+                    from: "bottom",
+                    align: "left"
+                }
+            }); 
+    	});
+    </script>
+    </body>
+</html>

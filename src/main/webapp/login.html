@@ -1,1 +1,167 @@
+<!--
+  *
+  * Contains the main public page for login
+  * Created By <VJP Singh> vkre84u@gmail.com
+  ****-->
+	  
+<!DOCTYPE html>
+<html lang="en">
 
+	<head>
+	    <title>3D BIN Packing - Login</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	    <link href="assets/pace/themes/red/pace-theme-center-atom.css" rel="stylesheet" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	    <script data-pace-options='{ "elements": false }' src="assets/pace/pace.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" >
+		<script src="js/session.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/demo.css">
+		<link rel="stylesheet" type="text/css" href="css/magnifier.css">
+		<link rel="stylesheet" type="text/css" href="css/gallery.css">
+		
+		<script type="text/javascript" src="js/Event.js"></script>
+		<script type="text/javascript" src="js/Magnifier.js"></script>
+		<script type="text/javascript" src="js/Gallery.js"></script>
+
+    	<style>
+    		body{background-image: url('/images/flowers.png');background-repeat: repeat;}
+    		
+	        fieldset.scheduler-border {
+	            border: 1px solid #d8d8d8 !important;
+	            padding: 0 1.4em 1.4em 1.4em !important;
+	            margin: 0 0 0 0 !important;
+	            -webkit-box-shadow: 0px 0px 0px 0px #000;
+	            box-shadow: 0px 0px 0px 0px #000;
+	        }
+        
+	        legend.scheduler-border {
+	            font-size: 16px !important;
+	            font-weight: bold !important;
+	            text-align: left !important;
+	            width: auto;
+	            padding: 0 10px;
+	            border-bottom: none;
+	        }
+
+	        .issign
+	        {
+	            border-bottom: 1px solid #d9d9d9;
+	            border-left: 0px solid;
+	            border-right: 0px solid;
+	            border-top: 0px solid;
+	        }
+        
+    	</style>
+    	<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+	  	<section class="section">
+	    	<div class="container-fluid">
+				<br><br><br><br><br><br><br>
+	      		<div class="card initialer_card" style="width: 23rem;margin: 0 auto;float: none;margin-bottom: 10px;border-top-left-radius: 50px;border-top-right-radius: 10px;">
+	        		<div class="card-header" style="background-color: #00d1b2;color:white;border-top-right-radius: 10px;border-top-left-radius: 10px;border-top-left-radius: 50px;"> <i class="fas fa-user-tie"></i>&nbsp;&nbsp;LOGIN</div>
+	        		<div class="card-body">
+	          			<form method="POST" class="login_form" action="LoginController">
+	            			<div class="form-group row">
+	              				<div class="col-12">
+	                				<input class="form-control email" type="text" name="email" placeholder="Enter Username / Email" value="admin">
+	              				</div>
+	            			</div><br>
+	
+	            			<div class="form-group row">
+	              				<div class="col-12">
+	                				<input class="form-control password" type="password" name="password" placeholder="Enter Password" value="password">
+	              				</div>
+	            			</div><br>
+								
+							<input type="hidden" name="redirection_link" id="redirection_link">
+								
+	            			<div class="form-group row">
+	              				<div class="d-block mx-auto">
+	                				<a class="btn btn-warning login_click" style="background: #ff1f4b;color:white;border-radius: 25px;border: 1px solid #cccccc;padding-right: 30px;padding-left: 30px;">Sign In</a>
+	                				<button class="btn btn-warning submit_login" type="submit" style="display: none;">Sign In</button>
+	              				</div>
+	            			</div>
+	            				
+	          			</form>
+	        		</div>
+	      		</div>
+	    	</div>
+	  	</section>
+		  		
+	  	<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="case_initial_modal">
+			 <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      	<div class="modal-body" style="padding: 2rem;">
+			      		<div class="row">
+					   		<div class="col-md-12" style="padding-top: 25px;">
+								<p class="text-center" > <b>It seems Problem In Configuration? Please Contact vkre84u@gmail.com</b></p>
+								<div class="row" style="overflow-y: auto;height:20px;padding-bottom: 25px;">
+								
+								</div>
+			        			<div class="row">
+			        				<button type="button" class="btn btn-primary d-block mx-auto" data-dismiss="modal" aria-label="Close" id="modal_case_upload_okay"  style="width: 25%;">Okay</button>
+			        			</div>
+			        		</div>
+			        	</div>
+			      	</div>
+			    </div>
+			 </div>
+		</div>
+  				
+    			
+ 		<script type="text/javascript">
+   			$(document).ready(function() 
+   			{
+   				$('.login_click').click(function()
+   				{
+   					var username = $('.email').val();
+   					var password = $('.password').val();
+   					var path = window.location.protocol+"//"+location.hostname+(location.port ? ':'+location.port: '');
+   					console.log(path);
+   					var token ="";
+   					if(username != '')
+   					{
+   						if(password != '')
+   						{
+   							$.ajax
+   							({
+   								"type": "POST",
+   								"url": path+"/login",
+   								"data": JSON.stringify({"username":username,"password":password}),
+   								"headers":{"Authorization":"Bearer "+token,"Content-Type":"application/json"},
+   								"success": function(data,textStatus,request) 
+   								{
+   									if(request.getResponseHeader('authorization') !== undefined)
+   									{
+   										var authorize = request.getResponseHeader('authorization');
+   	   									$.session.set("Authorization", authorize);
+   	   									console.log(authorize);
+   	   									window.location.href = path+"/index.html";
+   									}
+   									else
+   									{
+   										$.notify({title: 'Information: ',message: 'Credentials Incorrect... '},{type: 'info',animate:{enter: 'animated rollIn',exit: 'animated rollOut'}});
+   									}
+   								}
+   							});
+   						}
+   	 					else
+   						{
+      						$.notify({title: 'ERROR: ',message: 'Please provide Password... '},{type: 'info',animate:{enter: 'animated rollIn',exit: 'animated rollOut'}});
+   						}
+   					}
+   					else
+   					{
+   						$.notify({title: 'ERROR: ',message: 'Please provide Username or Email ID '},{type: 'info',animate:{enter: 'animated rollIn',exit: 'animated rollOut'}});
+   					}
+				});
+			});
+		</script>
+	</body>
+</html>
