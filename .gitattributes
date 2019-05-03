@@ -1,1 +1,2 @@
-Java Spring Boot Rest API
+# Example of a `.gitattributes` file which reclassifies `.rb` files as Java:
+*.rb linguist-language=Java
